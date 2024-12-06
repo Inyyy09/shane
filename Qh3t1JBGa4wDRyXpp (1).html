@@ -1,0 +1,154 @@
+<html><head><base href="." /><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Login Portal</title><style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
+
+    .login-container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 400px;
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+    }
+
+    .login-container:hover {
+        transform: translateY(-5px);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.8rem;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+        border-color: #1a2a6c;
+    }
+
+    label {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+        transition: 0.3s ease;
+        pointer-events: none;
+        background: white;
+        padding: 0 5px;
+    }
+
+    input:focus ~ label,
+    input:not(:placeholder-shown) ~ label {
+        top: 0;
+        font-size: 0.8rem;
+        color: #1a2a6c;
+    }
+
+    button {
+        width: 100%;
+        padding: 0.8rem;
+        background: #1a2a6c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    button:hover {
+        background: #2a3a7c;
+    }
+
+    .forgot-password {
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .forgot-password a {
+        color: #1a2a6c;
+        text-decoration: none;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+</style></head><body>
+    <div class="login-container">
+        <h1>Welcome Back</h1>
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="email" id="email" placeholder=" " required>
+                <label for="email">Email</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder=" " required>
+                <label for="password">Password</label>
+            </div>
+            <button type="submit">Log In</button>
+        </form>
+        <div class="forgot-password">
+            <a href="https://example.com/reset-password">Forgot Password?</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Here you would typically send the data to your server
+            console.log('Login attempt:', { email, password });
+            
+            // Simulate login process
+            const button = this.querySelector('button');
+            button.textContent = 'Logging in...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                alert('Login functionality would be implemented here with actual server communication.');
+                button.textContent = 'Log In';
+                button.disabled = false;
+            }, 1500);
+        });
+    </script>
+</body></html>
